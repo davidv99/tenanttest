@@ -4,21 +4,14 @@ use Illuminate\Broadcasting\BroadcastEvent;
 use Illuminate\Events\CallQueuedListener;
 use Illuminate\Mail\SendQueuedMailable;
 use Illuminate\Notifications\SendQueuedNotifications;
-use Placetopay\Cerberus\Models\Tenant;
-use Placetopay\Cerberus\Tasks\SwitchTenantTask;
-use Placetopay\Cerberus\TenantFinder\DomainTenantFinder;
 use Spatie\Multitenancy\Actions\ForgetCurrentTenantAction;
 use Spatie\Multitenancy\Actions\MakeQueueTenantAwareAction;
 use Spatie\Multitenancy\Actions\MakeTenantCurrentAction;
 use Spatie\Multitenancy\Actions\MigrateTenantAction;
-use Spatie\Multitenancy\Tasks\PrefixCacheTask;
+use Spatie\Multitenancy\Models\Tenant;
+use Spatie\Multitenancy\TenantFinder\DomainTenantFinder;
 
 return [
-    /**
-     * This name identifies the project for a central database that uses multiple tenants.
-     */
-    'identifier' => env('APP_IDENTIFIER', 'main'),
-
     /*
      * This class is responsible for determining which tenant should be current
      * for the given request.
@@ -29,13 +22,19 @@ return [
     'tenant_finder' => DomainTenantFinder::class,
 
     /*
+     * These fields are used by tenant:artisan command to match one or more tenant
+     */
+    'tenant_artisan_search_fields' => [
+        'name',
+    ],
+
+    /*
      * These tasks will be performed when switching tenants.
      *
      * A valid task is any class that implements Spatie\Multitenancy\Tasks\SwitchTenantTask
      */
     'switch_tenant_tasks' => [
-        SwitchTenantTask::class,
-        PrefixCacheTask::class,
+        \Spatie\Multitenancy\Tasks\SwitchTenantDatabaseTask::class,
     ],
 
     /*
@@ -62,7 +61,7 @@ return [
     /*
      * The connection name to reach the landlord database
      */
-    'landlord_database_connection_name' => env('DB_LANDLORD_CONNECTION', 'landlord'),
+    'landlord_database_connection_name' => 'landlord',
 
     /*
      * This key will be used to bind the current tenant in the container.

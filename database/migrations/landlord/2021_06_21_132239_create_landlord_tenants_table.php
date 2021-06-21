@@ -10,10 +10,9 @@ class CreateLandlordTenantsTable extends Migration
     {
         Schema::create('tenants', function (Blueprint $table) {
             $table->id();
-            $table->string('app', 5);
             $table->string('name');
             $table->string('domain')->unique();
-            $table->json('config')->nullable();
+            $table->string('database')->unique();
             $table->timestamps();
         });
     }

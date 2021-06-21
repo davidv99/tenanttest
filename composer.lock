@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6098129a12e559fbd0fe8576c8d90b34",
+    "content-hash": "cf471d4914fcef97d23d8c014b612b59",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1094,16 +1094,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.6.2",
+            "version": "1.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "7d70d2f19c84bcc16275ea47edabee24747352eb"
+                "reference": "c3c8b7217c52572fb42aaf84211abccf75a151b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/7d70d2f19c84bcc16275ea47edabee24747352eb",
-                "reference": "7d70d2f19c84bcc16275ea47edabee24747352eb",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/c3c8b7217c52572fb42aaf84211abccf75a151b2",
+                "reference": "c3c8b7217c52572fb42aaf84211abccf75a151b2",
                 "shasum": ""
             },
             "require": {
@@ -1121,7 +1121,7 @@
                 "github/gfm": "0.29.0",
                 "michelf/php-markdown": "~1.4",
                 "mikehaertl/php-shellcommand": "^1.4",
-                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan": "^0.12.90",
                 "phpunit/phpunit": "^7.5 || ^8.5 || ^9.2",
                 "scrutinizer/ocular": "^1.5",
                 "symfony/finder": "^4.2"
@@ -1191,7 +1191,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-12T11:39:41+00:00"
+            "time": "2021-06-19T20:08:14+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1722,71 +1722,6 @@
                 }
             ],
             "time": "2020-07-20T17:29:33+00:00"
-        },
-        {
-            "name": "placetopay/cerberus",
-            "version": "dev-develop",
-            "dist": {
-                "type": "path",
-                "url": "./../cerberus",
-                "reference": "8fae82e32fc1d71defd9603ebdfad4764744c667"
-            },
-            "require": {
-                "php": "^7.4",
-                "spatie/laravel-multitenancy": "^1.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "orchestra/testbench": "^5.0",
-                "phpunit/phpunit": "^9.5"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Placetopay\\Cerberus\\TenancyServiceProvider"
-                    ],
-                    "aliases": {
-                        "Multitenancy": "Spatie\\Multitenancy\\MultitenancyFacade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Placetopay\\Cerberus\\": "src"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Placetopay\\Cerberus\\Tests\\": "tests"
-                },
-                "classmap": [
-                    "tests/database/migrations/landlord"
-                ]
-            },
-            "scripts": {
-                "php-cs-fixer": [
-                    "vendor/bin/php-cs-fixer fix --config=.php_cs"
-                ],
-                "test": [
-                    "vendor/bin/phpunit tests/"
-                ]
-            },
-            "authors": [
-                {
-                    "name": "Andrés Vidal",
-                    "email": "andres.vidal@evertecinc.com"
-                },
-                {
-                    "name": "David Valbuena",
-                    "email": "david.valbuena@evertecinc.com"
-                }
-            ],
-            "description": "Allows multiple tenants on Laravel applications",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
         },
         {
             "name": "psr/container",
@@ -7310,6 +7245,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {
@@ -7474,9 +7410,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "placetopay/cerberus": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
