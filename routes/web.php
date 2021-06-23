@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function (){
-    dispatch(new \App\Jobs\TestJob());
+Route::get('/jobs', function (){
+    dispatch(new \App\Jobs\TestJob(\App\Models\User::first()));
+    return response()->json('job dispatched');
 });

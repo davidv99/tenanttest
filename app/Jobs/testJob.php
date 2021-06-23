@@ -14,14 +14,16 @@ class testJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    private ?User $user;
+
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $user = null)
     {
-
+        $this->user = $user;
     }
 
     /**
@@ -31,12 +33,14 @@ class testJob implements ShouldQueue
      */
     public function handle()
     {
-        logger()->info('...........LOG FROM JOB............');
-        logger()->info('...........CREATING USER............');
+        logger()->info("...........LOG FROM JOB............");
+        logger()->info("...........CREATING USER............");
+
+        logger()->info("...........INJECTED USER {$this->user->name}");
+
         $user = User::factory()->create();
-        logger()->info('USER WAS CREATED: ', [
-                'USER' => $user->toArray(),
-            ]);
-        logger()->info('...........ENDING JOB............');
+
+        logger()->info("USER WAS CREATED: ", ["USER" => $user->toArray()]);
+        logger()->info("...........ENDING JOB............");
     }
 }
