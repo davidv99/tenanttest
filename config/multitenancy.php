@@ -27,7 +27,7 @@ return [
     'filesystems_disks' => [
         'local',
         'public',
-        //s3
+        's3',
     ],
 
     /*
