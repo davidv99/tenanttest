@@ -19,5 +19,13 @@ Route::get('/', function () {
 
 Route::get('/jobs', function (){
     dispatch(new \App\Jobs\TestJob(\App\Models\User::first()));
+
     return response()->json('job dispatched');
+});
+
+Route::get('/cache', function (){
+    cache()->put('key_1', 'value_1');
+    cache()->put('key_2', 'value_2');
+
+    return response()->json('Cache generated');
 });
