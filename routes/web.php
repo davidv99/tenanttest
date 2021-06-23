@@ -1,6 +1,10 @@
 <?php
 
+use App\Jobs\TestJob;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+use Placetopay\Cerberus\Models\Tenant;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::get('/jobs', function (){
-    dispatch(new \App\Jobs\TestJob(\App\Models\User::first()));
+    dispatch(new TestJob(User::first()));
 
     return response()->json('job dispatched');
 });
@@ -28,4 +32,9 @@ Route::get('/cache', function (){
     cache()->put('key_2', 'value_2');
 
     return response()->json('Cache generated');
+});
+
+Route::get('/storage', function(){
+    Storage::put('file.txt', 'Content from tenant: '. Tenant::current()->domain);
+    return response()->json('File created');
 });
