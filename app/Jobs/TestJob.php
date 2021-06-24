@@ -36,9 +36,10 @@ class TestJob implements ShouldQueue
         logger()->info("...........LOG FROM JOB............");
         logger()->info("...........CREATING USER............");
 
-        logger()->info("...........INJECTED USER {$this->user->name}");
 
         $user = User::factory()->create();
+
+        logger()->info("...........INJECTED USER {$this->user->name}");
 
         logger()->info("USER WAS CREATED: ", ["USER" => $user->toArray()]);
         logger()->info("...........ENDING JOB............");
