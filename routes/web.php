@@ -35,6 +35,7 @@ Route::get('/cache', function (){
 });
 
 Route::get('/storage', function(){
-    Storage::put('file.txt', 'Content from tenant: '. Tenant::current()->domain);
-    return response()->json('File created');
+    Storage::disk('s3')->put('file.txt', 'Content from tenant: '. Tenant::current()->domain, ['visibility' => 'public']);
+    $url = Storage::disk('s3')->url('file.txtclear');
+    return response()->json("File created .... url: {$url}");
 });

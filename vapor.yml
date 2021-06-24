@@ -1,0 +1,20 @@
+id: 22151
+name: tenanttest
+environments:
+    staging:
+        memory: 1024
+        cli-memory: 512
+        runtime: 'php-7.4'
+        database: dev-database
+        database-user: declara_db_usr
+        queues:
+          - tenantest-dev-queue
+        storage: tenantest-dev-bucket
+        domain:
+          - tenanttest.placetopay.ws
+          - tenanttest-1.placetopay.ws
+          - tenanttest-2.placetopay.ws
+        build:
+            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install'
+            - 'php artisan event:cache'
+
