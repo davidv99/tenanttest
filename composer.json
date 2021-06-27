@@ -11,6 +11,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
+        "laravel/ui": "^3.3",
         "laravel/vapor-cli": "^1.22",
         "laravel/vapor-core": "^2.12",
         "placetopay/cerberus": "dev-develop"

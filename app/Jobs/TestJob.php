@@ -33,6 +33,10 @@ class TestJob implements ShouldQueue
      */
     public function handle()
     {
+        if ((User::count() % 3) == 0) {
+            throw new \Exception('failed by count');
+        }
+
         logger()->info("...........LOG FROM JOB............");
         logger()->info("...........CREATING USER............");
 

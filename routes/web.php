@@ -34,8 +34,21 @@ Route::get('/cache', function (){
     return response()->json('Cache generated');
 });
 
-Route::get('/storage', function(){
+Route::get('/storage-serverless', function(){
     Storage::disk('s3')->put('file.txt', 'Content from tenant: '. Tenant::current()->domain, ['visibility' => 'public']);
-    $url = Storage::disk('s3')->url('file.txtclear');
+    $url = Storage::disk('s3')->url('file.txt');
     return response()->json("File created .... url: {$url}");
 });
+
+Route::get('/storage', function(){
+    Storage::put('file.txt', 'Content from tenant: '. Tenant::current()->domain);
+    return response()->json("File created");
+});
+
+Route::get('/asset', function(){
+    return asset('css/test.css');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

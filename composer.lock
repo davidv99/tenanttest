@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "defca9ed040a917a2811a3cfffab4ba9",
+    "content-hash": "7e39306a3157f3a7f7fdd4ee10c2444f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1253,6 +1253,64 @@
             "time": "2021-03-02T16:53:12+00:00"
         },
         {
+            "name": "laravel/ui",
+            "version": "v3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/ui.git",
+                "reference": "07d725813350c695c779382cbd6dac0ab8665537"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/07d725813350c695c779382cbd6dac0ab8665537",
+                "reference": "07d725813350c695c779382cbd6dac0ab8665537",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^8.42",
+                "illuminate/filesystem": "^8.42",
+                "illuminate/support": "^8.42",
+                "illuminate/validation": "^8.42",
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Ui\\UiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Ui\\": "src/",
+                    "Illuminate\\Foundation\\Auth\\": "auth-backend/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel UI utilities and presets.",
+            "keywords": [
+                "laravel",
+                "ui"
+            ],
+            "support": {
+                "source": "https://github.com/laravel/ui/tree/v3.3.0"
+            },
+            "time": "2021-05-25T16:45:33+00:00"
+        },
+        {
             "name": "laravel/vapor-cli",
             "version": "v1.22.0",
             "source": {
@@ -2270,12 +2328,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/placetopay-org/cerberus.git",
-                "reference": "fbd8632a9039f5cf5bf5f6d62475c3e7ad1490c9"
+                "reference": "0a68f8701a1d4d6bfce07d16440d779d6bc88f6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/placetopay-org/cerberus/zipball/fbd8632a9039f5cf5bf5f6d62475c3e7ad1490c9",
-                "reference": "fbd8632a9039f5cf5bf5f6d62475c3e7ad1490c9",
+                "url": "https://api.github.com/repos/placetopay-org/cerberus/zipball/0a68f8701a1d4d6bfce07d16440d779d6bc88f6d",
+                "reference": "0a68f8701a1d4d6bfce07d16440d779d6bc88f6d",
                 "shasum": ""
             },
             "require": {
@@ -2334,7 +2392,7 @@
                 "source": "https://github.com/placetopay-org/cerberus/tree/develop",
                 "issues": "https://github.com/placetopay-org/cerberus/issues"
             },
-            "time": "2021-06-24T13:52:57+00:00"
+            "time": "2021-06-24T16:57:30+00:00"
         },
         {
             "name": "psr/container",
