@@ -4,9 +4,10 @@ environments:
     staging:
         memory: 1024
         cli-memory: 512
-        runtime: 'php-7.4'
+        runtime: docker
         database: dev-database
         database-user: declara_db_usr
+        cache: placetopay-test
         queues:
           - tenantest-dev-queue
         storage: tenantest-dev-bucket

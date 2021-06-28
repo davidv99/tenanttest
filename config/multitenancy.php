@@ -6,7 +6,6 @@ use Illuminate\Mail\SendQueuedMailable;
 use Illuminate\Notifications\SendQueuedNotifications;
 use Placetopay\Cerberus\Models\Tenant;
 use Placetopay\Cerberus\Tasks\FilesystemSuffixedTask;
-use Placetopay\Cerberus\Tasks\FilesystemTenancyBootstrapTask;
 use Placetopay\Cerberus\Tasks\SwitchTenantTask;
 use Placetopay\Cerberus\TenantFinder\DomainTenantFinder;
 use Spatie\Multitenancy\Actions\ForgetCurrentTenantAction;
