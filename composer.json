@@ -14,7 +14,7 @@
         "laravel/ui": "^3.3",
         "laravel/vapor-cli": "^1.22",
         "laravel/vapor-core": "^2.12",
-        "placetopay/cerberus": "dev-develop"
+        "placetopay/cerberus": "dev-feature/add-some-validations"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -2,6 +2,8 @@
 
 use App\Jobs\TestJob;
 use App\Models\User;
+use Carbon\Carbon;
+use Carbon\CarbonTimeZone;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Placetopay\Cerberus\Models\Tenant;
@@ -49,6 +51,40 @@ Route::get('/asset', function(){
     return asset('css/test.css');
 });
 
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/locale', function(){
+   $locales = collect(['es', 'es_CO', 'en_US', 'en_UK']);
+
+   $locales->each(function ($locale) {
+       \Carbon\Carbon::setLocale($locale);
+        dump([
+            'locale' => $locale,
+            'now' => \Carbon\Carbon::now()->isoFormat('MMMM dddd Y'),
+        ]);
+    });
+});
+
+Route::get('/timezone', function (){
+
+    Carbon::macro('userTz', static function ($userTimezone = 'auth()->user()') {
+        $date = self::this()->copy()->tz('America/Bogota');
+
+        return $date; // or ->isoFormat($customFormat), ->diffForHumans(), etc.
+    });
+
+    $locales = collect(['es', 'es_CO', 'en_US', 'en_UK']);
+
+    $locales->each(function ($locale) {
+        \Carbon\Carbon::setLocale($locale);
+        $user = User::first();
+        dump([
+            'locale' => $locale,
+            'timezone' => $user->timezone,
+            'now' => Carbon::now()->userTz($user->timezone),
+            'user_original' => $user->created_at->calendar(),
+            'user_formated' => $user->created_at->userTz($user->timezone)->diffForHumans(),
+        ]);
+    });
+});
