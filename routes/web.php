@@ -37,15 +37,11 @@ Route::get('/cache', function (){
 });
 
 Route::get('/storage-serverless', function(){
-    Storage::disk('s3')->put('file.txt', 'Content from tenant: '. Tenant::current()->domain, ['visibility' => 'public']);
+    Storage::disk('s3')->put('file.txt', 'Content storage in s3: ', ['visibility' => 'public']);
     $url = Storage::disk('s3')->url('file.txt');
     return response()->json("File created .... url: {$url}");
 });
 
-Route::get('/storage', function(){
-    Storage::put('file.txt', 'Content from tenant: '. Tenant::current()->domain);
-    return response()->json("File created");
-});
 
 Route::get('/asset', function(){
     return asset('css/test.css');
@@ -54,7 +50,7 @@ Route::get('/asset', function(){
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/locale', function(){
+/*Route::get('/locale', function(){
    $locales = collect(['es', 'es_CO', 'en_US', 'en_UK']);
 
    $locales->each(function ($locale) {
@@ -64,9 +60,9 @@ Route::get('/locale', function(){
             'now' => \Carbon\Carbon::now()->isoFormat('MMMM dddd Y'),
         ]);
     });
-});
+});*/
 
-Route::get('/timezone', function (){
+/*Route::get('/timezone', function (){
 
     Carbon::macro('userTz', static function ($userTimezone = 'auth()->user()') {
         $date = self::this()->copy()->tz('America/Bogota');
@@ -87,4 +83,4 @@ Route::get('/timezone', function (){
             'user_formated' => $user->created_at->userTz($user->timezone)->diffForHumans(),
         ]);
     });
-});
+});*/
