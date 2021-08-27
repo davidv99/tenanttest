@@ -85,7 +85,6 @@ return [
     */
 
     'failed' => [
-        'connection' => env('DB_LANDLORD_CONNECTION'),
         'driver' => env('QUEUE_FAILED_DRIVER', 'database-uuids'),
         'database' => 'landlord',
         'table' => 'failed_jobs',
